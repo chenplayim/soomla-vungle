@@ -1,0 +1,1 @@
+ant -buildfile soomla-vungle.xml -Dsoomla.filename="SoomlaVungle" all

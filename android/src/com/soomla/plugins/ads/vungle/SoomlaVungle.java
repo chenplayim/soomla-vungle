@@ -1,8 +1,8 @@
 package com.soomla.plugins.ads.vungle;
 
-import com.soomla.blueprint.rewards.Reward;
-import com.soomla.store.SoomlaApp;
-import com.soomla.store.StoreUtils;
+import com.soomla.SoomlaApp;
+import com.soomla.SoomlaUtils;
+import com.soomla.rewards.Reward;
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
 import com.vungle.publisher.VunglePub;
@@ -29,15 +29,29 @@ public class SoomlaVungle {
         vunglePub.onPause();
     }
 
+    public boolean isCachedAdAvailable() {
+        return vunglePub.isCachedAdAvailable();
+    }
+
     public void playIncentivisedAd(Reward reward) {
+        playIncentivisedAd(false, true, reward);
+    }
+
+    public void playIncentivisedAd(boolean enableBackButton, boolean enableSounds, Reward reward) {
         mCurrentReward = reward;
 
         final AdConfig overrideConfig = new AdConfig();
         overrideConfig.setIncentivized(true);
+        overrideConfig.setSoundEnabled(enableSounds);
+        overrideConfig.setBackButtonImmediatelyEnabled(enableBackButton);
         vunglePub.playAd(overrideConfig);
     }
 
     public void playAd(Reward reward) {
+      playAd(false, true, reward);
+    }
+
+    public void playAd(boolean enableBackButton, boolean enableSounds, Reward reward) {
         mCurrentReward = reward;
 
         vunglePub.playAd();
@@ -54,30 +68,35 @@ public class SoomlaVungle {
 
         @Override
         public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
-            StoreUtils.LogError("AAAAAAA", "video view   " + isCompletedView + "   " + watchedMillis + "   " + videoDurationMillis);
-            if (isCompletedView) {
+            SoomlaUtils.LogDebug(TAG, "onVideoView:   completed: " +
+                    isCompletedView + "   watched: " +
+                    watchedMillis + "   duration: " +
+                    videoDurationMillis);
+            if (isCompletedView && mCurrentReward != null) {
                 mCurrentReward.give();
+                mCurrentReward = null;
             }
         }
 
         @Override
         public void onAdStart() {
-            StoreUtils.LogError("AAAAAAA", "started");
+            SoomlaUtils.LogError(TAG, "onAdStart");
         }
 
         @Override
         public void onAdUnavailable(String s) {
-            StoreUtils.LogError("AAAAAAA", "avail");
+            SoomlaUtils.LogError(TAG, "onAdUnavailable");
+            mCurrentReward = null;
         }
 
         @Override
         public void onAdEnd() {
-            StoreUtils.LogError("AAAAAAA", "ended");
+            SoomlaUtils.LogError(TAG, "onAdEnd");
         }
 
         @Override
         public void onCachedAdAvailable() {
-            StoreUtils.LogError("AAAAAAA", "cache avail");
+            SoomlaUtils.LogError(TAG, "onCachedAdAvailable");
         }
 
     };
@@ -88,4 +107,5 @@ public class SoomlaVungle {
 
     private Reward mCurrentReward = null;
     private static SoomlaVungle sInstance = null;
+    private static final String TAG = "SOOMLA SoomlaVungle";
 }
