@@ -10,7 +10,6 @@
 		C0233464194AEF7D005DE53A /* SoomlaiOSVungle-Prefix.pch in Headers */ = {isa = PBXBuildFile; fileRef = C0233463194AEF7D005DE53A /* SoomlaiOSVungle-Prefix.pch */; settings = {ATTRIBUTES = (Private, ); }; };
 		C023348D194B127A005DE53A /* SoomlaVungle.h in Headers */ = {isa = PBXBuildFile; fileRef = C023348B194B127A005DE53A /* SoomlaVungle.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		C023348E194B127A005DE53A /* SoomlaVungle.m in Sources */ = {isa = PBXBuildFile; fileRef = C023348C194B127A005DE53A /* SoomlaVungle.m */; };
-		C0233490194B1350005DE53A /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C023348F194B1350005DE53A /* VungleSDK.framework */; };
 		C0233492194B1365005DE53A /* AdSupport.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0233491194B1365005DE53A /* AdSupport.framework */; };
 		C0233494194B136D005DE53A /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0233493194B136D005DE53A /* AudioToolbox.framework */; };
 		C0233496194B1372005DE53A /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0233495194B1372005DE53A /* AVFoundation.framework */; };
@@ -24,6 +23,7 @@
 		C02334A6194B13BD005DE53A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02334A5194B13BD005DE53A /* StoreKit.framework */; };
 		C02334A8194B13C2005DE53A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02334A7194B13C2005DE53A /* SystemConfiguration.framework */; };
 		C02334AA194B13C8005DE53A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02334A9194B13C8005DE53A /* UIKit.framework */; };
+		C023352F194D9A60005DE53A /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C023352E194D9A60005DE53A /* VungleSDK.framework */; };
 		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -43,7 +43,6 @@
 		C0233463194AEF7D005DE53A /* SoomlaiOSVungle-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "SoomlaiOSVungle-Prefix.pch"; sourceTree = "<group>"; };
 		C023348B194B127A005DE53A /* SoomlaVungle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SoomlaVungle.h; sourceTree = "<group>"; };
 		C023348C194B127A005DE53A /* SoomlaVungle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SoomlaVungle.m; sourceTree = "<group>"; };
-		C023348F194B1350005DE53A /* VungleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VungleSDK.framework; path = SoomlaiOSVungle/VungleSDK.embeddedframework/VungleSDK.framework; sourceTree = "<group>"; };
 		C0233491194B1365005DE53A /* AdSupport.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AdSupport.framework; path = System/Library/Frameworks/AdSupport.framework; sourceTree = SDKROOT; };
 		C0233493194B136D005DE53A /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
 		C0233495194B1372005DE53A /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
@@ -57,6 +56,13 @@
 		C02334A5194B13BD005DE53A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C02334A7194B13C2005DE53A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C02334A9194B13C8005DE53A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C0233528194D9A60005DE53A /* __vungle.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = __vungle.db; sourceTree = "<group>"; };
+		C0233529194D9A60005DE53A /* vg_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_close.png; sourceTree = "<group>"; };
+		C023352A194D9A60005DE53A /* vg_cta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_cta.png; sourceTree = "<group>"; };
+		C023352B194D9A60005DE53A /* vg_mute_off.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_mute_off.png; sourceTree = "<group>"; };
+		C023352C194D9A60005DE53A /* vg_mute_on.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_mute_on.png; sourceTree = "<group>"; };
+		C023352D194D9A60005DE53A /* vg_timer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_timer.png; sourceTree = "<group>"; };
+		C023352E194D9A60005DE53A /* VungleSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = VungleSDK.framework; sourceTree = "<group>"; };
 		C0B3C5EF168C6D0C00161FAA /* libSoomlaiOSVungle.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSoomlaiOSVungle.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0B3C5F2168C6D0C00161FAA /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
@@ -74,12 +80,12 @@
 				C02334A0194B1397005DE53A /* libsqlite3.dylib in Frameworks */,
 				C023349E194B1391005DE53A /* libz.dylib in Frameworks */,
 				C023349C194B138A005DE53A /* CoreMedia.framework in Frameworks */,
+				C023352F194D9A60005DE53A /* VungleSDK.framework in Frameworks */,
 				C023349A194B1384005DE53A /* CoreGraphics.framework in Frameworks */,
 				C0233498194B1379005DE53A /* CFNetwork.framework in Frameworks */,
 				C0233496194B1372005DE53A /* AVFoundation.framework in Frameworks */,
 				C0233494194B136D005DE53A /* AudioToolbox.framework in Frameworks */,
 				C0233492194B1365005DE53A /* AdSupport.framework in Frameworks */,
-				C0233490194B1350005DE53A /* VungleSDK.framework in Frameworks */,
 				C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -87,9 +93,32 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C0233526194D9A60005DE53A /* VungleSDK.embeddedframework */ = {
+			isa = PBXGroup;
+			children = (
+				C0233527194D9A60005DE53A /* Resources */,
+				C023352E194D9A60005DE53A /* VungleSDK.framework */,
+			);
+			path = VungleSDK.embeddedframework;
+			sourceTree = "<group>";
+		};
+		C0233527194D9A60005DE53A /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				C0233528194D9A60005DE53A /* __vungle.db */,
+				C0233529194D9A60005DE53A /* vg_close.png */,
+				C023352A194D9A60005DE53A /* vg_cta.png */,
+				C023352B194D9A60005DE53A /* vg_mute_off.png */,
+				C023352C194D9A60005DE53A /* vg_mute_on.png */,
+				C023352D194D9A60005DE53A /* vg_timer.png */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
 		C0B3C5E4168C6D0C00161FAA = {
 			isa = PBXGroup;
 			children = (
+				C0233526194D9A60005DE53A /* VungleSDK.embeddedframework */,
 				C0CF4D57183BDCA80070CC85 /* SoomlaiOSVungle */,
 				C0B3C5F1168C6D0C00161FAA /* Frameworks */,
 				C0B3C5F0168C6D0C00161FAA /* Products */,
@@ -120,7 +149,6 @@
 				C0233495194B1372005DE53A /* AVFoundation.framework */,
 				C0233493194B136D005DE53A /* AudioToolbox.framework */,
 				C0233491194B1365005DE53A /* AdSupport.framework */,
-				C023348F194B1350005DE53A /* VungleSDK.framework */,
 				C0B3C5F2168C6D0C00161FAA /* Foundation.framework */,
 			);
 			name = Frameworks;
@@ -278,6 +306,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SoomlaiOSVungle/VungleSDK.embeddedframework",
+					"$(PROJECT_DIR)/VungleSDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SoomlaiOSVungle/SoomlaiOSVungle-Prefix.pch";
@@ -299,6 +328,7 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SoomlaiOSVungle/VungleSDK.embeddedframework",
+					"$(PROJECT_DIR)/VungleSDK.embeddedframework",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
