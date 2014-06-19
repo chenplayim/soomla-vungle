@@ -17,6 +17,8 @@ public class SoomlaVungle {
     public void initialize(String appId) {
 
         // initialize the Publisher SDK
+        SoomlaUtils.LogDebug(TAG, "Starting Vungle for: " + appId);
+
         vunglePub.init(SoomlaApp.getAppContext(), appId);
         vunglePub.setEventListener(vungleListener);
     }
@@ -54,6 +56,9 @@ public class SoomlaVungle {
     public void playAd(boolean enableBackButton, boolean enableSounds, Reward reward) {
         mCurrentReward = reward;
 
+        final AdConfig overrideConfig = new AdConfig();
+        overrideConfig.setSoundEnabled(enableSounds);
+        overrideConfig.setBackButtonImmediatelyEnabled(enableBackButton);
         vunglePub.playAd();
     }
 

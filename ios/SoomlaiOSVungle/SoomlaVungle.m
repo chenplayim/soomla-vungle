@@ -7,9 +7,11 @@
 //
 
 #import "SoomlaVungle.h"
+#import <VungleSDK/VungleSDK.h>
 #import "SoomlaConfig.h"
 #import "SoomlaUtils.h"
 #import "Reward.h"
+
 
 @implementation SoomlaVungle
 

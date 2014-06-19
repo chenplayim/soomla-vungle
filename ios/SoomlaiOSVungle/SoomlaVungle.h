@@ -6,9 +6,9 @@
 //  Copyright (c) 2014 SOOMLA. All rights reserved.
 //
 
-#import <VungleSDK/VungleSDK.h>
-
 @class Reward;
+@protocol VungleSDKDelegate;
+@class VungleSDK;
 
 @interface SoomlaVungle : NSObject <VungleSDKDelegate> {
     @private
