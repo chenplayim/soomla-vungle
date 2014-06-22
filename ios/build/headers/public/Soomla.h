@@ -16,27 +16,10 @@
 
 #import <Foundation/Foundation.h>
 
-/**
- * An Encryptor that uses AES to encrypt data.
- */
-@interface SoomlaEncryptor : NSObject
+@interface Soomla : NSObject
 
-/**
- * Returns the key used for encrypting/decrypting values during transformation.
- */
-+ (NSString*)key;
+extern NSString* SOOMLA_SECRET;
 
-+ (NSString *)encryptString:(NSString *)data;
-
-+ (NSString *)decryptToString:(NSString *)data;
-
-+ (NSString *)encryptNumber:(NSNumber *)data;
-
-+ (NSNumber *)decryptToNumber:(NSString *)data;
-
-+ (NSString *)encryptBoolean:(BOOL)data;
-
-+ (BOOL)decryptToBoolean:(NSString *)data;
++ (void)initializeWithSecret:(NSString *)secret;
 
 @end
-

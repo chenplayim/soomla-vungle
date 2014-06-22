@@ -4,9 +4,6 @@
 [submodule "submodules/soomla-ios-core"]
 	path = submodules/soomla-ios-core
 	url = git@github.com:soomla/soomla-ios-core.git
-[submodule "submodules/soomla-vungle"]
-	path = submodules/soomla-vungle
-	url = git@github.com:soomla/soomla-vungle.git
 [submodule "submodules/unity3d-store"]
 	path = submodules/unity3d-store
 	url = git@github.com:soomla/unity3d-store.git
