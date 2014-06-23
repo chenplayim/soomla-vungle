@@ -37,10 +37,10 @@ This project works alongside with SOOMLA for iOS.
 
 To play a Vungle Ad, just call the "playAd" function on SoomlaVungle. Here is an example of how it's done:
 
-    ``` Objective-C
-    VirtualItemReward* reward = [[VirtualItemReward alloc] initWithRewardId:@"muffins_for_ad" andName:@"Muffins for watching Ad" andAmount:1232 andAssociatedItemId:@"currency_muffin"];
-    [reward setRepeatable:YES];
-    [[SoomlaVungle getInstance] playAd:self withReward:reward andCloseButtonOption:true];
-    ```
+``` Objective-C
+ VirtualItemReward* reward = [[VirtualItemReward alloc] initWithRewardId:@"muffins_for_ad" andName:@"Muffins for watching Ad" andAmount:1232 andAssociatedItemId:@"currency_muffin"];
+ [reward setRepeatable:YES];
+ [[SoomlaVungle getInstance] playAd:self withReward:reward andCloseButtonOption:true];
+```
 
 Note that in this example we use `VirtualItemReward` which is a special kind of Reward from [ios-store](https://github.com/soomla/ios-store). If you also want to use that reward, go over to that project and follow the integration instructions there.
