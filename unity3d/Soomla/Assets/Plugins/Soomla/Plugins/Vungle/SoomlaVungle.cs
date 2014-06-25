@@ -39,17 +39,19 @@ namespace Soomla.Vungle
 		/// <summary>
 		/// Initializes the SOOMLA Vungle SDK.
 		/// </summary>
-		public static void Initialize(string appId) {
-			SoomlaUtils.LogDebug(TAG, "Starting Vungle for: " + appId);
+		public static void Initialize() {
+
 #if UNITY_ANDROID && !UNITY_EDITOR
+			SoomlaUtils.LogDebug(TAG, "Starting Vungle for: " + VungleSettings.VungleAppIdAndroid);
 			AndroidJNI.PushLocalFrame(100);
 			using(AndroidJavaClass jniSoomlaVungleClass = new AndroidJavaClass("com.soomla.plugins.ads.vungle.SoomlaVungle")) {
 				jniSoomlaVungle = jniSoomlaVungleClass.CallStatic<AndroidJavaObject>("getInstance");
-				jniSoomlaVungle.Call("initialize", appId);
+				jniSoomlaVungle.Call("initialize", VungleSettings.VungleAppIdAndroid);
 			}
 			AndroidJNI.PopLocalFrame(IntPtr.Zero);
 #elif UNITY_IOS && !UNITY_EDITOR
-			soomlaVungle_Init(appId);
+			SoomlaUtils.LogDebug(TAG, "Starting Vungle for: " + VungleSettings.VungleAppIdiOS);
+			soomlaVungle_Init(VungleSettings.VungleAppIdiOS);
 #endif
 		}
 
