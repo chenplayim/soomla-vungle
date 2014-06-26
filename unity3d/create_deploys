@@ -1,3 +1,3 @@
 
 echo "creating unitypackage for Unity Soomla Vungle"
-/Applications/Unity/Unity.app/Contents/MacOS/Unity -batchmode -logFile create_unity.log -projectPath $PWD/Unity\ Project/ -exportPackage Assets $PWD/soomla-unity3d-vungle.unitypackage -quit
+/Applications/Unity/Unity.app/Contents/MacOS/Unity -batchmode -logFile create_unity.log -projectPath $PWD/Soomla/ -exportPackage Assets $PWD/soomla-unity3d-vungle.unitypackage -quit

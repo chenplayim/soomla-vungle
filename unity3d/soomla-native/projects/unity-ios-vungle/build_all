@@ -3,4 +3,4 @@ rm -rf build
 
 xcodebuild -configuration Release -sdk iphoneos7.1 -project UnityiOSVungle.xcodeproj -target UnityiOSVungle clean build CREATING_UNIVERSAL_DIR=$PWD/build
 
-cp build/libUnityiOSVungle.a ../../../Unity\ Project/Assets/Plugins/iOS/
+cp build/libUnityiOSVungle.a ../../../Soomla/Assets/Plugins/iOS/

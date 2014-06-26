@@ -246,7 +246,7 @@
 				DSTROOT = /tmp/SoomlaIOSStore.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/refaelos/work/soomla/plugins/soomla-vungle/ios/VungleSDK.embeddedframework",
+					"$(SRCROOT)/../../../../ios/VungleSDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "/Applications/Unity/Unity.app/Contents/PlaybackEngines/iPhonePlayer/iPhone-Trampoline/Classes/iPhone_target_Prefix.pch";
@@ -255,10 +255,10 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Applications/Unity/Unity.app/Contents/PlaybackEngines/iPhonePlayer/iPhone-Trampoline/Classes/**",
-					"../../../../submodules/soomla-ios-core/SoomlaiOSCore/**",
-					"../../../../ios/SoomlaiOSVungle/**",
+					"$(SRCROOT)/../../../../submodules/soomla-ios-core/SoomlaiOSCore/**",
+					"$(SRCROOT)/../../../../ios/SoomlaiOSVungle/**",
 				);
-				LIBRARY_SEARCH_PATHS = ../../../Soomla/Assets/Plugins/iOS/;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../Soomla/Assets/Plugins/iOS/";
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = headers/private;
 				PRODUCT_NAME = UnityiOSVungle;
@@ -274,7 +274,7 @@
 				DSTROOT = /tmp/SoomlaIOSStore.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"/Users/refaelos/work/soomla/plugins/soomla-vungle/ios/VungleSDK.embeddedframework",
+					"$(SRCROOT)/../../../../ios/VungleSDK.embeddedframework",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -283,10 +283,10 @@
 					"$(inherited)",
 					/Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/include,
 					"/Applications/Unity/Unity.app/Contents/PlaybackEngines/iPhonePlayer/iPhone-Trampoline/Classes/**",
-					"../../../../submodules/soomla-ios-core/SoomlaiOSCore/**",
-					"../../../../ios/SoomlaiOSVungle/**",
+					"$(SRCROOT)/../../../../submodules/soomla-ios-core/SoomlaiOSCore/**",
+					"$(SRCROOT)/../../../../ios/SoomlaiOSVungle/**",
 				);
-				LIBRARY_SEARCH_PATHS = ../../../Soomla/Assets/Plugins/iOS/;
+				LIBRARY_SEARCH_PATHS = "$(SRCROOT)/../../../Soomla/Assets/Plugins/iOS/";
 				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRIVATE_HEADERS_FOLDER_PATH = headers/private;

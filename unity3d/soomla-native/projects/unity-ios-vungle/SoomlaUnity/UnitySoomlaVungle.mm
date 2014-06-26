@@ -3,7 +3,7 @@
 #import "Reward.h"
 #import "SoomlaUtils.h"
 
-extern UIViewController* UnityGetGLViewController();
+extern "C" UIViewController* UnityGetGLViewController();
 
 extern "C"{
 
