@@ -19,9 +19,9 @@ using System.Runtime.InteropServices;
 namespace Soomla.Vungle
 {
 	/// <summary>
-	/// This class holds the basic assets needed to operate the Store.
-	/// You can use it to purchase products from the mobile store.
-	/// This is the only class you need to initialize in order to use the SOOMLA SDK.
+	/// This class provides the API for working with the SOOMLA Vungle plugin.
+	/// Use it to initialize Vungle and play video ads in return for rewards.
+	/// It must be initialized after <c>SoomlaStore</c>.
 	/// </summary>
 	public class SoomlaVungle
 	{
@@ -37,7 +37,7 @@ namespace Soomla.Vungle
 #endif
 
 		/// <summary>
-		/// Initializes the SOOMLA Vungle SDK.
+		/// Initializes the SOOMLA Vungle plugin.
 		/// </summary>
 		public static void Initialize() {
 
@@ -56,10 +56,11 @@ namespace Soomla.Vungle
 		}
 
 		/// <summary>
-		/// Starts a purchase process in the market.
+		/// Plays a video ad and grants the user a reward for watching it.
 		/// </summary>
-		/// <param name="productId">id of the item to buy.</param>
-		/// <param name="payload">some text you want to get back when the purchasing process is completed. NOTE: This is not supported on iOS !</param>
+		/// <param name="reward">The reward that will be given to users for watching the video ad.</param>
+		/// <param name="enableBackButton">Determines whether you would like to give the user the
+		option to skip out of the video. <c>true</c> means a close button will be displayed.</param>
 		public static void PlayAd(Reward reward, bool enableBackButton) {
 			SoomlaUtils.LogDebug(TAG, "Playing Vungle Ad");
 #if UNITY_ANDROID && !UNITY_EDITOR
