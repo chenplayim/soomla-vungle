@@ -5,7 +5,7 @@
 
 Vungle is a video advertising solutions for mobile developers. We created this plugin to allow developers who use Vungle to easily integrate with SOOMLA.
 
-This repo contain the code and relevant integration information for all technologies supported by SOOMLA. Each technology folder above contains the integrations instructions in it.
+This repo contains the code and relevant integration information for all technologies supported by SOOMLA. Each technology folder above contains the integrations instructions in it.
 
 
 ## Contribution
