@@ -7,7 +7,7 @@ using System.Xml;
 using System.Text;
 using System.Collections.Generic;
 
-namespace Soomla.Store
+namespace Soomla.Vungle
 {
 #if UNITY_EDITOR
 	[InitializeOnLoad]
