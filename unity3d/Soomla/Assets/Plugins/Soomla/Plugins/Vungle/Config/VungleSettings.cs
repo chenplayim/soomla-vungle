@@ -20,18 +20,18 @@ using System;
 using UnityEditor;
 #endif
 
-namespace Soomla
+namespace Soomla.Vungle
 {
-	
+
 	#if UNITY_EDITOR
 	[InitializeOnLoad]
 	#endif
 	/// <summary>
-	/// This class holds the store's configurations. 
+	/// This class holds the store's configurations.
 	/// </summary>
 	public class VungleSettings : ISoomlaSettings
 	{
-		
+
 		#if UNITY_EDITOR
 		static VungleSettings instance = new VungleSettings();
 		static VungleSettings()
@@ -43,21 +43,20 @@ namespace Soomla
 		GUIContent vungleAppIdiOSLabel = new GUIContent("Vungle App ID - iOS [?]:", "Your Vungle app ID for iOS (found on the Vungle dashboard).");
 
 		public void OnEnable() {
-			// Generating AndroidManifest.xml
-//			SoomlaManifestTools.GenerateManifest();
+			// No enabling, leave empty and let StoreManifestTools do the work
 		}
-		
+
 		public void OnModuleGUI() {
 		}
-		
+
 		public void OnInfoGUI() {
 		}
 
 		public void OnSoomlaGUI() {
 
-			/// 
+			///
 			/// Create Vungle App ID labels and text fields
-			/// 
+			///
 			EditorGUILayout.BeginHorizontal();
 			EditorGUILayout.LabelField(vungleAppIdAndroidLabel,  GUILayout.Width(150), SoomlaEditorScript.FieldHeight);
 			VungleAppIdAndroid = EditorGUILayout.TextField(VungleAppIdAndroid, SoomlaEditorScript.FieldHeight);
@@ -69,17 +68,17 @@ namespace Soomla
 			EditorGUILayout.Space();
 		}
 		#endif
-		
+
 		public static string VUNGLE_APP_ID_ANDROID_DEFAULT_MESSAGE = "[YOUR VUNGLE APP ID FOR ANDROID]";
 		public static string VUNGLE_APP_ID_IOS_DEFAULT_MESSAGE = "[YOUR VUNGLE APP ID FOR IOS]";
 
 		public static string VungleAppIdAndroid
 		{
-			get { 
+			get {
 				string value;
 				return SoomlaEditorScript.Instance.SoomlaSettings.TryGetValue("VungleAppIdAndroid", out value) ? value : VUNGLE_APP_ID_ANDROID_DEFAULT_MESSAGE;
 			}
-			set 
+			set
 			{
 				string v;
 				SoomlaEditorScript.Instance.SoomlaSettings.TryGetValue("VungleAppIdAndroid", out v);
@@ -90,14 +89,14 @@ namespace Soomla
 				}
 			}
 		}
-		
+
 		public static string VungleAppIdiOS
 		{
-			get { 
+			get {
 				string value;
 				return SoomlaEditorScript.Instance.SoomlaSettings.TryGetValue("VungleAppIdiOS", out value) ? value : VUNGLE_APP_ID_IOS_DEFAULT_MESSAGE;
 			}
-			set 
+			set
 			{
 				string v;
 				SoomlaEditorScript.Instance.SoomlaSettings.TryGetValue("VungleAppIdiOS", out v);
@@ -108,7 +107,6 @@ namespace Soomla
 				}
 			}
 		}
-		
+
 	}
 }
-

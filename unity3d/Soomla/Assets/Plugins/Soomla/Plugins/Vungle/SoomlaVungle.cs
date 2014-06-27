@@ -60,7 +60,7 @@ namespace Soomla.Vungle
 		/// </summary>
 		/// <param name="reward">The reward that will be given to users for watching the video ad.</param>
 		/// <param name="enableBackButton">Determines whether you would like to give the user the
-		option to skip out of the video. <c>true</c> means a close button will be displayed.</param>
+		/// option to skip out of the video. <c>true</c> means a close button will be displayed.</param>
 		public static void PlayAd(Reward reward, bool enableBackButton) {
 			SoomlaUtils.LogDebug(TAG, "Playing Vungle Ad");
 #if UNITY_ANDROID && !UNITY_EDITOR
