@@ -34,7 +34,8 @@
 
     /* -= Call handlers =- */
     [ndkGlue registerCallHandlerForKey:@"CCVungleService::init" withBlock:^(NSDictionary *parameters, NSMutableDictionary *retParameters) {
-        NSString *appId = [parameters objectForKey:@"appId"];
+        NSDictionary *dictionary = [parameters objectForKey:@"params"];
+        NSString *appId = [dictionary objectForKey:@"appId"];
         [[VungleService sharedVungleService] initWithAppId: appId];
     }];
     [ndkGlue registerCallHandlerForKey:@"CCVungleService::playAd" withBlock:^(NSDictionary *parameters, NSMutableDictionary *retParameters) {
