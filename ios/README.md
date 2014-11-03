@@ -39,7 +39,7 @@ To play a Vungle Ad, just call the "playAd" function on SoomlaVungle. Here is an
 
 ``` Objective-C
  VirtualItemReward* reward = [[VirtualItemReward alloc] initWithRewardId:@"muffins_for_ad" andName:@"Muffins for watching Ad" andAmount:1232 andAssociatedItemId:@"currency_muffin"];
- [reward setRepeatable:YES];
+ reward.schedule = [Schedule AnyTimeUnlimited];
  [[SoomlaVungle getInstance] playAd:self withReward:reward andCloseButtonOption:true];
 ```
 
