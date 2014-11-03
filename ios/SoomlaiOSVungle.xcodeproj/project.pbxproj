@@ -305,7 +305,6 @@
 				DSTROOT = /tmp/SoomlaiOSVungle.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SoomlaiOSVungle/VungleSDK.embeddedframework",
 					"$(PROJECT_DIR)/VungleSDK.embeddedframework",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -328,7 +327,6 @@
 				DSTROOT = /tmp/SoomlaiOSVungle.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SoomlaiOSVungle/VungleSDK.embeddedframework",
 					"$(PROJECT_DIR)/VungleSDK.embeddedframework",
 				);
 				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;

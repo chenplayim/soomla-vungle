@@ -11,7 +11,8 @@ extern "C"{
         [[SoomlaVungle getInstance] initialize:[NSString stringWithUTF8String:appId]];
     }
 
-	void soomlaVungle_PlayAd(bool enableBackButton, const char* rewardJSON){
+	void soomlaVungle_PlayAd(bool enableBackButton, const char* rewardId){
+        NSString* rewardIdS = [NSString stringWithUTF8String:rewardId];
         Reward* reward = NULL;
         if (rewardJSON) {
             NSDictionary* dict = [SoomlaUtils jsonStringToDict:[NSString stringWithUTF8String:rewardJSON]];
@@ -20,4 +21,5 @@ extern "C"{
         UIViewController* uivc = UnityGetGLViewController();
         [[SoomlaVungle getInstance] playAd:uivc withReward:reward andCloseButtonOption:enableBackButton];
 	}
+    
 }

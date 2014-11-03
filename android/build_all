@@ -1,1 +1,3 @@
+cp ../submodules/soomla-android-core/build/* build/
+
 ant -buildfile soomla-vungle.xml -Dsoomla.filename="SoomlaVungle" all

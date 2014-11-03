@@ -7,3 +7,6 @@
 [submodule "submodules/unity3d-store"]
 	path = submodules/unity3d-store
 	url = git@github.com:soomla/unity3d-store.git
+[submodule "submodules/soomla-unity3d-core"]
+	path = submodules/soomla-unity3d-core
+	url = git@github.com:soomla/soomla-unity3d-core.git

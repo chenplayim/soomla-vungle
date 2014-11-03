@@ -1,6 +1,6 @@
 rm -rf build
 mkdir build
 
-xcodebuild -configuration Release -sdk iphoneos7.1 -project ../submodules/soomla-ios-core/SoomlaiOSCore.xcodeproj -target SoomlaiOSCore clean build CREATING_UNIVERSAL_DIR=$PWD/build
-xcodebuild -configuration Release -sdk iphoneos7.1 clean build CREATING_UNIVERSAL_DIR=$PWD/build
-xcodebuild -configuration Release -sdk iphoneos7.1 -project SoomlaiOSVungle.xcodeproj -target SoomlaiOSVungle clean build CREATING_UNIVERSAL_DIR=$PWD/build
+xcodebuild -configuration Release -sdk iphoneos -project ../submodules/soomla-ios-core/SoomlaiOSCore.xcodeproj -target SoomlaiOSCore clean build CREATING_UNIVERSAL_DIR=$PWD/build
+xcodebuild -configuration Release -sdk iphoneos clean build CREATING_UNIVERSAL_DIR=$PWD/build
+xcodebuild -configuration Release -sdk iphoneos -project SoomlaiOSVungle.xcodeproj -target SoomlaiOSVungle clean build CREATING_UNIVERSAL_DIR=$PWD/build

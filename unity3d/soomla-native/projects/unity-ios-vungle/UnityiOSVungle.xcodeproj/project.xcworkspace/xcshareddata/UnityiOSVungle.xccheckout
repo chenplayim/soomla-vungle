@@ -10,29 +10,29 @@
 	<string>UnityiOSVungle</string>
 	<key>IDESourceControlProjectOriginsDictionary</key>
 	<dict>
-		<key>BAEB0D20-94AA-48C5-8E9A-66D043DF9A47</key>
-		<string>ssh://github.com/soomla/soomla-vungle.git</string>
+		<key>647F7D0933D8C15C07950E053ED8B01E82ED2C7A</key>
+		<string>github.com:soomla/soomla-vungle.git</string>
 	</dict>
 	<key>IDESourceControlProjectPath</key>
-	<string>unity3d/soomla-native/projects/unity-ios-vungle/UnityiOSVungle.xcodeproj/project.xcworkspace</string>
+	<string>unity3d/soomla-native/projects/unity-ios-vungle/UnityiOSVungle.xcodeproj</string>
 	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
 	<dict>
-		<key>BAEB0D20-94AA-48C5-8E9A-66D043DF9A47</key>
+		<key>647F7D0933D8C15C07950E053ED8B01E82ED2C7A</key>
 		<string>../../../../../..</string>
 	</dict>
 	<key>IDESourceControlProjectURL</key>
-	<string>ssh://github.com/soomla/soomla-vungle.git</string>
+	<string>github.com:soomla/soomla-vungle.git</string>
 	<key>IDESourceControlProjectVersion</key>
-	<integer>110</integer>
+	<integer>111</integer>
 	<key>IDESourceControlProjectWCCIdentifier</key>
-	<string>BAEB0D20-94AA-48C5-8E9A-66D043DF9A47</string>
+	<string>647F7D0933D8C15C07950E053ED8B01E82ED2C7A</string>
 	<key>IDESourceControlProjectWCConfigurations</key>
 	<array>
 		<dict>
 			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
 			<string>public.vcs.git</string>
 			<key>IDESourceControlWCCIdentifierKey</key>
-			<string>BAEB0D20-94AA-48C5-8E9A-66D043DF9A47</string>
+			<string>647F7D0933D8C15C07950E053ED8B01E82ED2C7A</string>
 			<key>IDESourceControlWCCName</key>
 			<string>soomla-vungle</string>
 		</dict>
