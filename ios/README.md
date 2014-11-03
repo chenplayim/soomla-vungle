@@ -7,8 +7,9 @@ This project works alongside with SOOMLA for iOS.
 
 1. You'll need to attach the static libraries from the [build](https://github.com/soomla/soomla-vungle/tree/master/android/build) folder to your project. Add that folder to your "Library Search Paths" and "Header Search Path". Also, you'll need to add `-ObjC -lSoomlaiOSCore -lSoomlaiOSVungle` to "Other Linker Flags".
 
-2. Vungle requires the following frameworks:
+2. Vungle requires the following frameworks:  
 
+* VungleSDK.embeddedframework (you can use the one in this repo)
 * AdSupport.framework
 * AudioToolbox.framework
 * AVFoundation.framework
@@ -39,7 +40,7 @@ To play a Vungle Ad, just call the "playAd" function on SoomlaVungle. Here is an
 
 ``` Objective-C
  VirtualItemReward* reward = [[VirtualItemReward alloc] initWithRewardId:@"muffins_for_ad" andName:@"Muffins for watching Ad" andAmount:1232 andAssociatedItemId:@"currency_muffin"];
- [reward setRepeatable:YES];
+ reward.schedule = [Schedule AnyTimeUnlimited];
  [[SoomlaVungle getInstance] playAd:self withReward:reward andCloseButtonOption:true];
 ```
 
