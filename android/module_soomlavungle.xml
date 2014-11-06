@@ -20,14 +20,14 @@
   <path id="soomlavungle.module.production.classpath">
     <path refid="${module.jdk.classpath.soomlavungle}"/>
     <pathelement location="${basedir}/build/SoomlaAndroidCore.jar"/>
-    <pathelement location="${basedir}/build/vungle-publisher-3.0.7.jar"/>
+    <pathelement location="${basedir}/build/vungle-publisher-adaptive-id-3.2.2.jar"/>
     <pathelement location="${basedir}/build/square-otto-1.3.2.jar"/>
   </path>
 
   <path id="soomlavungle.runtime.production.module.classpath">
     <pathelement location="${soomlavungle.output.dir}"/>
     <pathelement location="${basedir}/build/SoomlaAndroidCore.jar"/>
-    <pathelement location="${basedir}/build/vungle-publisher-3.0.7.jar"/>
+    <pathelement location="${basedir}/build/vungle-publisher-adaptive-id-3.2.2.jar"/>
     <pathelement location="${basedir}/build/square-otto-1.3.2.jar"/>
   </path>
 
@@ -35,14 +35,14 @@
     <path refid="${module.jdk.classpath.soomlavungle}"/>
     <pathelement location="${soomlavungle.output.dir}"/>
     <pathelement location="${basedir}/build/SoomlaAndroidCore.jar"/>
-    <pathelement location="${basedir}/build/vungle-publisher-3.0.7.jar"/>
+    <pathelement location="${basedir}/build/vungle-publisher-adaptive-id-3.2.2.jar"/>
     <pathelement location="${basedir}/build/square-otto-1.3.2.jar"/>
   </path>
 
   <path id="soomlavungle.runtime.module.classpath">
     <pathelement location="${soomlavungle.output.dir}"/>
     <pathelement location="${basedir}/build/SoomlaAndroidCore.jar"/>
-    <pathelement location="${basedir}/build/vungle-publisher-3.0.7.jar"/>
+    <pathelement location="${basedir}/build/vungle-publisher-adaptive-id-3.2.2.jar"/>
     <pathelement location="${basedir}/build/square-otto-1.3.2.jar"/>
   </path>
 

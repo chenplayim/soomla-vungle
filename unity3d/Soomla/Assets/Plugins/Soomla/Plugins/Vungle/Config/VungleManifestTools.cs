@@ -34,6 +34,8 @@ namespace Soomla.Vungle
 			SoomlaManifestTools.AppendApplicationElement("service", "com.vungle.publisher.VungleService", new Dictionary<string, string>() {
 				{ "exported", "false" }
 			});
+
+			SoomlaManifestTools.AddMetaDataTag("com.google.android.gms.version", "@integer/google_play_services_version");
 		}
 
 #endif

@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_unitysoomlaandroidvungle" default="compile.module.unitysoomlaandroidvungle">
+  <dirname property="module.unitysoomlaandroidvungle.basedir" file="${ant.file.module_unitysoomlaandroidvungle}"/>
+
+  <property name="module.jdk.home.unitysoomlaandroidvungle" value="${jdk.home.android}"/>
+  <property name="module.jdk.bin.unitysoomlaandroidvungle" value="${jdk.bin.android}"/>
+  <property name="module.jdk.classpath.unitysoomlaandroidvungle" value="jdk.classpath.android"/>
+
+  <property name="compiler.args.unitysoomlaandroidvungle" value="-encoding UTF-8 -source 1.6 ${compiler.args}"/>
+
+  <property name="unitysoomlaandroidvungle.output.dir" value="${module.unitysoomlaandroidvungle.basedir}/out/production/UnitySoomlaAndroidVungle"/>
+
+  <path id="unitysoomlaandroidvungle.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+
+  <path id="unitysoomlaandroidvungle.module.production.classpath">
+    <path refid="${module.jdk.classpath.unitysoomlaandroidvungle}"/>
+    <pathelement location="${basedir}/libs/unity-classes.jar"/>
+    <pathelement location="${basedir}/../../../Soomla/Assets/Plugins/Android/SoomlaAndroidVungle.jar"/>
+    <pathelement location="${basedir}/../../../../android/build/SoomlaVungle.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/SoomlaAndroidCore.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/square-otto-1.3.2.jar"/>
+  </path>
+
+  <path id="unitysoomlaandroidvungle.runtime.production.module.classpath">
+    <pathelement location="${unitysoomlaandroidvungle.output.dir}"/>
+    <pathelement location="${basedir}/libs/unity-classes.jar"/>
+    <pathelement location="${basedir}/../../../Soomla/Assets/Plugins/Android/SoomlaAndroidVungle.jar"/>
+    <pathelement location="${basedir}/../../../../android/build/SoomlaVungle.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/SoomlaAndroidCore.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/square-otto-1.3.2.jar"/>
+  </path>
+
+  <path id="unitysoomlaandroidvungle.module.classpath">
+    <path refid="${module.jdk.classpath.unitysoomlaandroidvungle}"/>
+    <pathelement location="${unitysoomlaandroidvungle.output.dir}"/>
+    <pathelement location="${basedir}/libs/unity-classes.jar"/>
+    <pathelement location="${basedir}/../../../Soomla/Assets/Plugins/Android/SoomlaAndroidVungle.jar"/>
+    <pathelement location="${basedir}/../../../../android/build/SoomlaVungle.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/SoomlaAndroidCore.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/square-otto-1.3.2.jar"/>
+  </path>
+
+  <path id="unitysoomlaandroidvungle.runtime.module.classpath">
+    <pathelement location="${unitysoomlaandroidvungle.output.dir}"/>
+    <pathelement location="${basedir}/libs/unity-classes.jar"/>
+    <pathelement location="${basedir}/../../../Soomla/Assets/Plugins/Android/SoomlaAndroidVungle.jar"/>
+    <pathelement location="${basedir}/../../../../android/build/SoomlaVungle.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/SoomlaAndroidCore.jar"/>
+    <pathelement location="${basedir}/../../../../submodules/soomla-android-core/build/square-otto-1.3.2.jar"/>
+  </path>
+
+
+  <patternset id="excluded.from.module.unitysoomlaandroidvungle">
+    <patternset refid="ignored.files"/>
+  </patternset>
+
+  <patternset id="excluded.from.compilation.unitysoomlaandroidvungle">
+    <patternset refid="compiler.excluded"/>
+    <patternset refid="excluded.from.module.unitysoomlaandroidvungle"/>
+  </patternset>
+
+  <path id="unitysoomlaandroidvungle.module.sourcepath">
+    <dirset dir="${module.unitysoomlaandroidvungle.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+
+
+
+  <target name="compile.module.unitysoomlaandroidvungle" depends="compile.module.unitysoomlaandroidvungle.production" description="Compile module UnitySoomlaAndroidVungle"/>
+
+  <target name="compile.module.unitysoomlaandroidvungle.production" description="Compile module UnitySoomlaAndroidVungle; production classes">
+    <mkdir dir="${unitysoomlaandroidvungle.output.dir}"/>
+    <javac destdir="${unitysoomlaandroidvungle.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.unitysoomlaandroidvungle}/javac">
+      <compilerarg line="${compiler.args.unitysoomlaandroidvungle}"/>
+      <bootclasspath refid="unitysoomlaandroidvungle.module.bootclasspath"/>
+      <classpath refid="unitysoomlaandroidvungle.module.production.classpath"/>
+      <src refid="unitysoomlaandroidvungle.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.unitysoomlaandroidvungle"/>
+    </javac>
+
+    <copy todir="${unitysoomlaandroidvungle.output.dir}">
+      <fileset dir="${module.unitysoomlaandroidvungle.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+        <patternset refid="excluded.from.compilation.unitysoomlaandroidvungle"/>
+      </fileset>
+    </copy>
+  </target>
+
+  <target name="clean.module.unitysoomlaandroidvungle" description="cleanup module">
+    <delete dir="${unitysoomlaandroidvungle.output.dir}"/>
+  </target>
+</project>

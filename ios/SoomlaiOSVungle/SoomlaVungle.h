@@ -47,5 +47,6 @@
  */
 - (void)playAd:(UIViewController*)ui withReward:(Reward*)reward andCloseButtonOption:(BOOL)closeButton;
 
+- (BOOL)hasAds;
 
 @end

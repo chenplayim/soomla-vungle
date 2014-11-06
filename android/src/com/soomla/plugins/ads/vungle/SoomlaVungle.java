@@ -16,8 +16,13 @@
 
 package com.soomla.plugins.ads.vungle;
 
+import com.soomla.BusProvider;
 import com.soomla.SoomlaApp;
 import com.soomla.SoomlaUtils;
+import com.soomla.plugins.ads.vungle.events.VungleAdEndEvent;
+import com.soomla.plugins.ads.vungle.events.VungleAdStartEvent;
+import com.soomla.plugins.ads.vungle.events.VungleAdViewedEvent;
+import com.soomla.plugins.ads.vungle.events.VungleHasAdsEvent;
 import com.soomla.rewards.Reward;
 import com.vungle.publisher.AdConfig;
 import com.vungle.publisher.EventListener;
@@ -100,14 +105,24 @@ public class SoomlaVungle {
         return sInstance;
     }
 
+    public boolean hasAds() {
+        return vunglePub.isCachedAdAvailable();
+    }
+
     private final EventListener vungleListener = new EventListener(){
 
         @Override
         public void onVideoView(boolean isCompletedView, int watchedMillis, int videoDurationMillis) {
+            // Called each time an ad completes. isCompletedView is true if at least
+            // 80% of the video was watched, which constitutes a completed view.
+            // watchedMillis is for the longest video view (if the user replayed the
+            // video).
+
             SoomlaUtils.LogDebug(TAG, "onVideoView:   completed: " +
                     isCompletedView + "   watched: " +
                     watchedMillis + "   duration: " +
                     videoDurationMillis);
+            BusProvider.getInstance().post(new VungleAdViewedEvent(isCompletedView, watchedMillis, videoDurationMillis));
             if (isCompletedView && mCurrentReward != null) {
                 mCurrentReward.give();
                 mCurrentReward = null;
@@ -115,24 +130,25 @@ public class SoomlaVungle {
         }
 
         @Override
+        public void onAdEnd(boolean b) {
+            // Called when the user leaves the ad and control is returned to your application
+            BusProvider.getInstance().post(new VungleAdEndEvent());
+        }
+
+        @Override
         public void onAdStart() {
-            SoomlaUtils.LogError(TAG, "onAdStart");
+            // Called before playing an ad
+            BusProvider.getInstance().post(new VungleAdStartEvent());
         }
 
         @Override
         public void onAdUnavailable(String s) {
-            SoomlaUtils.LogError(TAG, "onAdUnavailable");
             mCurrentReward = null;
         }
 
         @Override
-        public void onAdEnd() {
-            SoomlaUtils.LogError(TAG, "onAdEnd");
-        }
-
-        @Override
         public void onCachedAdAvailable() {
-            SoomlaUtils.LogError(TAG, "onCachedAdAvailable");
+            BusProvider.getInstance().post(new VungleHasAdsEvent());
         }
 
     };

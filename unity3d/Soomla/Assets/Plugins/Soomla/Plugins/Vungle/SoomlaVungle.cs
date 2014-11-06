@@ -15,6 +15,7 @@
 using UnityEngine;
 using System;
 using System.Runtime.InteropServices;
+using Soomla;
 
 namespace Soomla.Vungle
 {
@@ -23,18 +24,33 @@ namespace Soomla.Vungle
 	/// Use it to initialize Vungle and play video ads in return for rewards.
 	/// It must be initialized after <c>SoomlaStore</c>.
 	/// </summary>
-	public class SoomlaVungle
-	{
+	public class SoomlaVungle : MonoBehaviour {
 #if UNITY_IOS && !UNITY_EDITOR
 		[DllImport ("__Internal")]
 		private static extern void soomlaVungle_Init(string appId);
 		[DllImport ("__Internal")]
-		private static extern void soomlaVungle_PlayAd(bool enableBackButton, string rewardJSON);
+		private static extern void soomlaVungle_PlayAd(bool enableBackButton);
+		[DllImport ("__Internal")]
+		[return:MarshalAs(UnmanagedType.Bool)]
+		private static extern bool soomlaVungle_HasAds();
 #endif
 
-#if UNITY_ANDROID && !UNITY_EDITOR
-		private static AndroidJavaObject jniSoomlaVungle = null;
-#endif
+		private const string TAG = "SOOMLA SoomlaVungle";
+		
+		private static SoomlaVungle instance = null;
+		
+		/// <summary>
+		/// Initializes game state before the game starts.
+		/// </summary>
+		void Awake(){
+			if(instance == null){ 	// making sure we only initialize one instance.
+				instance = this;
+				GameObject.DontDestroyOnLoad(this.gameObject);
+				Initialize();
+			} else {				// Destroying unused instances.
+				GameObject.Destroy(this.gameObject);
+			}
+		}
 
 		/// <summary>
 		/// Initializes the SOOMLA Vungle plugin.
@@ -44,9 +60,14 @@ namespace Soomla.Vungle
 #if UNITY_ANDROID && !UNITY_EDITOR
 			SoomlaUtils.LogDebug(TAG, "Starting Vungle for: " + VungleSettings.VungleAppIdAndroid);
 			AndroidJNI.PushLocalFrame(100);
+			// Initializing SoomlaEventHandler
+			using(AndroidJavaClass jniEventHandler = new AndroidJavaClass("com.soomla.core.unity.SoomlaVungleEventHandler")) {
+				jniEventHandler.CallStatic("initialize");
+			}
 			using(AndroidJavaClass jniSoomlaVungleClass = new AndroidJavaClass("com.soomla.plugins.ads.vungle.SoomlaVungle")) {
-				jniSoomlaVungle = jniSoomlaVungleClass.CallStatic<AndroidJavaObject>("getInstance");
-				jniSoomlaVungle.Call("initialize", VungleSettings.VungleAppIdAndroid);
+				using(AndroidJavaObject jniSoomlaVungle = jniSoomlaVungleClass.CallStatic<AndroidJavaObject>("getInstance")) {
+					jniSoomlaVungle.Call("initialize", VungleSettings.VungleAppIdAndroid);
+				}
 			}
 			AndroidJNI.PopLocalFrame(IntPtr.Zero);
 #elif UNITY_IOS && !UNITY_EDITOR
@@ -63,18 +84,94 @@ namespace Soomla.Vungle
 		/// option to skip out of the video. <c>true</c> means a close button will be displayed.</param>
 		public static void PlayAd(Reward reward, bool enableBackButton) {
 			SoomlaUtils.LogDebug(TAG, "Playing Vungle Ad");
+
+			savedReward = reward;
+
 #if UNITY_ANDROID && !UNITY_EDITOR
 			AndroidJNI.PushLocalFrame(100);
-			jniSoomlaVungle.Call("playIncentivisedAd", enableBackButton, true, (reward == null ? null : reward.toJNIObject()));
+			using(AndroidJavaClass jniSoomlaVungleClass = new AndroidJavaClass("com.soomla.plugins.ads.vungle.SoomlaVungle")) {
+				using(AndroidJavaObject jniSoomlaVungle = jniSoomlaVungleClass.CallStatic<AndroidJavaObject>("getInstance")) {
+					jniSoomlaVungle.Call("playIncentivisedAd", enableBackButton, true, null);
+				}
+			}
 			AndroidJNI.PopLocalFrame(IntPtr.Zero);
 #elif UNITY_IOS && !UNITY_EDITOR
-			soomlaVungle_PlayAd(enableBackButton, (reward == null ? null : reward.toJSONObject().print()));
+			soomlaVungle_PlayAd(enableBackButton);
 #endif
 		}
 
-		/// <summary> Class Members </summary>
+		/// <summary>
+		/// Plays a video ad and grants the user a reward for watching it.
+		/// </summary>
+		/// <param name="reward">The reward that will be given to users for watching the video ad.</param>
+		/// <param name="enableBackButton">Determines whether you would like to give the user the
+		/// option to skip out of the video. <c>true</c> means a close button will be displayed.</param>
+		public static bool HasAds() {
+			SoomlaUtils.LogDebug(TAG, "Checking if Vungle has Ads to show.");
+			
+#if UNITY_ANDROID && !UNITY_EDITOR
+			bool answer = false;
+			AndroidJNI.PushLocalFrame(100);
+			using(AndroidJavaClass jniSoomlaVungleClass = new AndroidJavaClass("com.soomla.plugins.ads.vungle.SoomlaVungle")) {
+				using(AndroidJavaObject jniSoomlaVungle = jniSoomlaVungleClass.CallStatic<AndroidJavaObject>("getInstance")) {
+					answer = jniSoomlaVungle.Call<bool>("hasAds");
+				}
+			}
+			AndroidJNI.PopLocalFrame(IntPtr.Zero);
 
-		private const string TAG = "SOOMLA SoomlaVungle";
+			return answer;
+#elif UNITY_IOS && !UNITY_EDITOR
+			return soomlaVungle_HasAds();
+#else
+			return false;
+#endif
+		}
+
+
+
+
+		public void onVungleAdEnd(string message) {
+			SoomlaUtils.LogDebug(TAG, "SOOMLA/UNITY onVungleAdEnd:" + message);
+			
+			SoomlaVungle.OnVungleAdEnd();
+		}
+
+
+		public void onVungleAdStart(string message) {
+			SoomlaUtils.LogDebug(TAG, "SOOMLA/UNITY onVungleAdStart:" + message);
+			
+			SoomlaVungle.OnVungleAdStart();
+		}
+
+		public void onVungleHasAds(string message) {
+			SoomlaUtils.LogDebug(TAG, "SOOMLA/UNITY onVungleHasAds:" + message);
+			
+			SoomlaVungle.OnVungleHasAds();
+		}
+
+		public void onVungleAdViewed(string message) {
+			SoomlaUtils.LogDebug(TAG, "SOOMLA/UNITY onVungleAdViewed:" + message);
+
+			JSONObject eventJSON = new JSONObject(message);
+			bool completed = eventJSON["completed"].b;
+			double timeWatched = eventJSON["timeWatched"].n;
+
+			if (completed && savedReward != null) {
+				savedReward.Give();
+				savedReward = null;
+			}
+
+			SoomlaVungle.OnVungleAdViewed(completed, timeWatched);
+		}
+
+		public delegate void Action();
+		
+		public static Action OnVungleAdEnd = delegate {};
+		public static Action OnVungleAdStart = delegate {};
+		public static Action OnVungleHasAds = delegate {};
+		public static Action<bool, double> OnVungleAdViewed = delegate {};
+
+		private static Reward savedReward;
 
 	}
 }

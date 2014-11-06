@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C05D26FC1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.h in Headers */ = {isa = PBXBuildFile; fileRef = C05D26FA1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.h */; };
+		C05D26FD1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.mm in Sources */ = {isa = PBXBuildFile; fileRef = C05D26FB1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.mm */; };
 		C069829B1951F8620000D1C7 /* UnitySoomlaVungle.mm in Sources */ = {isa = PBXBuildFile; fileRef = C069829A1951F8620000D1C7 /* UnitySoomlaVungle.mm */; };
 		C0969D10195351E9007349A3 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0969D0F195351E9007349A3 /* VungleSDK.framework */; };
 		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
@@ -25,6 +27,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		C05D26FA1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UnitySoomlaVungleEventDispatcher.h; sourceTree = "<group>"; };
+		C05D26FB1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnitySoomlaVungleEventDispatcher.mm; sourceTree = "<group>"; };
 		C069829A1951F8620000D1C7 /* UnitySoomlaVungle.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = UnitySoomlaVungle.mm; sourceTree = "<group>"; };
 		C0969D09195351E9007349A3 /* __vungle.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = __vungle.db; sourceTree = "<group>"; };
 		C0969D0A195351E9007349A3 /* vg_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_close.png; sourceTree = "<group>"; };
@@ -102,6 +106,8 @@
 		C0CF4D57183BDCA80070CC85 /* SoomlaUnity */ = {
 			isa = PBXGroup;
 			children = (
+				C05D26FA1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.h */,
+				C05D26FB1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.mm */,
 				C069829A1951F8620000D1C7 /* UnitySoomlaVungle.mm */,
 			);
 			path = SoomlaUnity;
@@ -114,6 +120,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05D26FC1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -187,6 +194,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C069829B1951F8620000D1C7 /* UnitySoomlaVungle.mm in Sources */,
+				C05D26FD1A0A8FFD00CBE3B9 /* UnitySoomlaVungleEventDispatcher.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

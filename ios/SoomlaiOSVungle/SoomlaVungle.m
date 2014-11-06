@@ -19,6 +19,7 @@
 #import "SoomlaConfig.h"
 #import "SoomlaUtils.h"
 #import "Reward.h"
+#import "VungleEventHandling.h"
 
 
 @implementation SoomlaVungle
@@ -45,7 +46,15 @@ static NSString* TAG = @"SOOMLA SoomlaVungle";
 
 - (void)playAd:(UIViewController*)ui withReward:(Reward*)reward andCloseButtonOption:(BOOL)closeButton {
     savedReward = reward;
-    [vunglePub playAd:ui withOptions:@{ @"showClose": [NSNumber numberWithBool:closeButton] }];
+    
+    NSDictionary* options = @{VunglePlayAdOptionKeyShowClose: @(closeButton)};
+    
+    // Pass in dict of options, play ad
+    [vunglePub playAd:ui withOptions:options];
+}
+
+- (BOOL)hasAds {
+    return [vunglePub isCachedAdAvailable];
 }
 
 
@@ -55,6 +64,15 @@ static NSString* TAG = @"SOOMLA SoomlaVungle";
  */
 - (void)vungleSDKwillShowAd {
     LogDebug(TAG, @"vungleSDKwillShowAd");
+    [VungleEventHandling postVungleAdStart];
+}
+
+/**
+ * If implemented, this will get called when ad ad has cached. It's now ready to play!
+ */
+- (void)vungleSDKhasCachedAdAvailable {
+    LogDebug(TAG, @"vungleSDKhasCachedAdAvailable");
+    [VungleEventHandling postVungleHasVideos];
 }
 
 /**
@@ -75,6 +93,8 @@ static NSString* TAG = @"SOOMLA SoomlaVungle";
     double watched = [(NSNumber*)[viewInfo objectForKey:@"playTime"] doubleValue];
     LogDebug(TAG, ([NSString stringWithFormat:@"vungleSDKwillCloseAdWithViewInfo   completed: %@   watched: %f   didDownlaod: %@", completed?@"true":@"false", watched, didDownlaod?@"true":@"false"]));
 
+    [VungleEventHandling postVungleAdViewedWithCompletion:completed andTimeWatched:watched];
+    
     if (completed && savedReward) {
         [savedReward give];
         savedReward = NULL;
@@ -86,6 +106,7 @@ static NSString* TAG = @"SOOMLA SoomlaVungle";
  */
 - (void)vungleSDKwillCloseProductSheet:(id)productSheet {
     LogDebug(TAG, @"vungleSDKwillCloseProductSheet");
+    [VungleEventHandling postVungleAdEnd];
 }
 
 @end

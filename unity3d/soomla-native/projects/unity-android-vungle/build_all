@@ -1,0 +1,1 @@
+ant -buildfile unity-soomla-android-vungle.xml -Dsoomla.filename="UnitySoomlaAndroidVungle" all

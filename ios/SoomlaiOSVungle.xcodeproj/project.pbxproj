@@ -23,6 +23,8 @@
 		C02334A6194B13BD005DE53A /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02334A5194B13BD005DE53A /* StoreKit.framework */; };
 		C02334A8194B13C2005DE53A /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02334A7194B13C2005DE53A /* SystemConfiguration.framework */; };
 		C02334AA194B13C8005DE53A /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C02334A9194B13C8005DE53A /* UIKit.framework */; };
+		C05D26F81A0A85AE00CBE3B9 /* VungleEventHandling.h in Headers */ = {isa = PBXBuildFile; fileRef = C05D26F61A0A85AE00CBE3B9 /* VungleEventHandling.h */; };
+		C05D26F91A0A85AE00CBE3B9 /* VungleEventHandling.m in Sources */ = {isa = PBXBuildFile; fileRef = C05D26F71A0A85AE00CBE3B9 /* VungleEventHandling.m */; };
 		C0969D521956D164007349A3 /* VungleSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0969D511956D164007349A3 /* VungleSDK.framework */; };
 		C0B3C5F3168C6D0C00161FAA /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C0B3C5F2168C6D0C00161FAA /* Foundation.framework */; };
 /* End PBXBuildFile section */
@@ -56,6 +58,8 @@
 		C02334A5194B13BD005DE53A /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
 		C02334A7194B13C2005DE53A /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		C02334A9194B13C8005DE53A /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		C05D26F61A0A85AE00CBE3B9 /* VungleEventHandling.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VungleEventHandling.h; sourceTree = "<group>"; };
+		C05D26F71A0A85AE00CBE3B9 /* VungleEventHandling.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VungleEventHandling.m; sourceTree = "<group>"; };
 		C0969D4B1956D164007349A3 /* __vungle.db */ = {isa = PBXFileReference; lastKnownFileType = file; path = __vungle.db; sourceTree = "<group>"; };
 		C0969D4C1956D164007349A3 /* vg_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_close.png; sourceTree = "<group>"; };
 		C0969D4D1956D164007349A3 /* vg_cta.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_cta.png; sourceTree = "<group>"; };
@@ -157,6 +161,8 @@
 		C0CF4D57183BDCA80070CC85 /* SoomlaiOSVungle */ = {
 			isa = PBXGroup;
 			children = (
+				C05D26F61A0A85AE00CBE3B9 /* VungleEventHandling.h */,
+				C05D26F71A0A85AE00CBE3B9 /* VungleEventHandling.m */,
 				C0233463194AEF7D005DE53A /* SoomlaiOSVungle-Prefix.pch */,
 				C023348B194B127A005DE53A /* SoomlaVungle.h */,
 				C023348C194B127A005DE53A /* SoomlaVungle.m */,
@@ -171,6 +177,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05D26F81A0A85AE00CBE3B9 /* VungleEventHandling.h in Headers */,
 				C023348D194B127A005DE53A /* SoomlaVungle.h in Headers */,
 				C0233464194AEF7D005DE53A /* SoomlaiOSVungle-Prefix.pch in Headers */,
 			);
@@ -245,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C05D26F91A0A85AE00CBE3B9 /* VungleEventHandling.m in Sources */,
 				C023348E194B127A005DE53A /* SoomlaVungle.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

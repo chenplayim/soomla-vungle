@@ -12,33 +12,24 @@ This project works alongside with SOOMLA for Unity3d.
 **Vungle App ID - Android**
 **Vungle App ID - iOS**
 with the app IDs from the Vungle dashboard (you can fill either or both, depending on the platforms you're targeting).
-3. You'll need to initialize SoomlaVungle AFTER you initialized SOOMLA (or SoomlaStore if you use [unity3d-store](https://github.com/soomla/unity3d-store)).
-
-    ```csharp
-    using Soomla.Vungle;
-
-    ...
-
-    void Start () {
-        ...
-        
-        SoomlaStore.Initialize(new MuffinRushAssets());
-        SoomlaVungle.Initialize();
-        
-        ...
-    }
-
-    ...
-    ```
+3. Add the VungleEvents prefab from the `Assets/Soomla/Prefabs` folder into your scene.
 
 ## Playing an Ad
 
 To play a Vungle Ad, just call the "playAd" function on SoomlaVungle. Here is an example of how it's done:
 
 ```csharp
-VirtualItemReward reward = new VirtualItemReward("muffins_for_ad", "Muffins for watching Ad", "currency_muffin", 1232);
-reward.Repeatable = true;
-SoomlaVungle.PlayAd(reward, true);
+using Soomla.Vungle;
+
+
+...
+
+
+if (SoomlaVungle.HasAds()) {
+  Reward reward = new VirtualItemReward("muffins_for_ad", "Muffins for watching Ad", "currency_muffin", 1232);
+	reward.Schedule = Schedule.AnyTimeUnLimited();
+	SoomlaVungle.PlayAd(reward, true);
+}
 ```
 
 Note that in this example we use `VirtualItemReward` which is a special kind of Reward from [unity3d-store](https://github.com/soomla/unity3d-store).
