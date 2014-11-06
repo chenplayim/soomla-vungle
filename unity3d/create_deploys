@@ -8,6 +8,6 @@ echo "creating unitypackage for Unity Soomla Vungle"
     Assets/Plugins/Android \
     Assets/Plugins/iOS \
     Assets/Plugins/Soomla/Plugins \
-    Assets/Soomla/
+    Assets/Soomla \
   $PWD/soomla-unity3d-vungle.unitypackage \
   -quit
