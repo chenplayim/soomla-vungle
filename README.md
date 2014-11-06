@@ -1,8 +1,5 @@
 *This project is an ads provider plugin [SOOMLA](http://soom.la)
 
-## [STATE: EXPERIMENTAL]
-### This project is in development. Works for Android / iOS but not yet for Unity and Cocos2dx. We're working on it ...
-
 ## soomla-vungle
 
 Vungle is a video advertising solutions for mobile developers. We created this plugin to allow developers who use Vungle to easily integrate with SOOMLA.
